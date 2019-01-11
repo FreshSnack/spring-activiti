@@ -1,0 +1,42 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'net.ruixin'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    //spring web
+    compile('org.springframework.boot:spring-boot-starter-web')
+    //jdbc template
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    //spring data jpa
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //mysql
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+    // dev tools
+    /*compile 'org.springframework.boot:spring-boot-devtools'*/
+    // activiti
+    /*compile group: 'org.activiti', name: 'activiti-spring-boot-starter-basic', version: '6.0.0'*/
+    //test
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
